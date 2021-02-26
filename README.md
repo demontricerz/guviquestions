@@ -37,6 +37,7 @@ Mancunian challenges you to solve the following problem. Given an array, find th
 
     3
 **Test Case 1**
+
 **Input**
 
     500
