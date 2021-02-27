@@ -368,3 +368,129 @@ for a0 in range(t):
 ```
 
 <hr/>
+
+> ## VQ3 Minimum Add to Make Parentheses Valid
+
+**Problem Statement**
+
+Given a string S of '(' and ')' parentheses, we add the minimum number of parentheses ( '(' or ')', and in any positions ) so that the resulting parentheses string is valid.
+
+Given a parentheses string, return the minimum number of parentheses we must add to make the resulting string valid.
+
+**Explanation**
+
+Formally, a parentheses string is valid if and only if:
+
+- It is the empty string, or
+- It can be written as AB (A concatenated with B), where A and B are valid strings, or
+- It can be written as (A), where A is a valid string.
+
+**Input Description**  
+
+    The Input Consists of an single line contains a String S
+
+**Output Description**  
+
+    The Output Should contains the integer N that specifies the minimum number of brackets can be added to balance the brackets
+
+**Constraints:**  
+
+    1 <= LENGTH(S) <= 1000000
+
+**Time Limit:**
+
+    Time Limit: 10000
+
+**Sample Input**
+
+    ()))((
+
+**Sample Output**
+
+    4
+
+<hr/>
+
+**Test Case 1**
+
+***Input 1***
+
+    ()()(((()(((())()(()()(()()(())())()(()()(()(()(()())(((()(((()((())()((()()())))))))))(())
+
+***Output 1***
+
+    9
+
+<hr/>
+
+**Test Case 2**
+
+***Input 2***
+
+    )(()())()()()(()())(((()()))((((()(())(((()())((()()(())()((((())(())((())(())()()))))()(()
+
+***Output 2***
+
+    11
+
+<hr/>
+
+**Test Case 3**
+
+***Input 3***
+
+    ((((()((((()((()())))))(())((((()()))()(((())()((()())))(((((()((()))))))(()(()))()(()()()(
+
+***Output 3***
+
+    11    
+
+<hr/>
+
+**Test Case 4**
+
+***Input 4***
+
+    ())()(((()()()((())()))(()))()()())))))()()()(((((()())))))))()(((())(())))(())())(()))))))
+
+***Output 4***
+
+    13
+
+<hr/>
+
+**Test Case 5**
+
+***Input 5***
+
+    )))())()))((())))()()()))((((())(((((()()((())()(())((())())))))())((())((()((()()))((()())
+
+***Output 5***
+
+    17
+
+<hr/>
+
+**Example Snippet (Python)**
+
+```python
+from collections import deque
+s=input()
+q=deque()
+for i in s:
+    if q:
+        #print("i= ",i,"q-1= ",q[-1])
+        if i==')' and q[-1]=='(':
+            q.pop()
+        elif i =='}' and q[-1]=='{':
+            q.pop()
+        elif i==']' and q[-1]=='[':
+            q.pop()
+        else:
+                q.append(i)
+    else:
+        q.append(i)
+print(len(q))
+```
+
+<hr/>
