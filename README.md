@@ -1072,3 +1072,294 @@ print("\n".join(a))
 
 <hr/>
 
+
+> ## VQ8 Neutralization of charges
+
+**Problem Statement**
+
+In a parallel universe, there are not just two charges like positive and negative, but there are 26 charges represented by  lower english alphabets.
+
+Charges have a property of killing each other or in other words neutralizing each other if they are of same charge and next to each other.
+
+
+**Input Description**  
+
+    You are given a string s where each si represents a charge, where 0 ≤ i ≤ |s| − 1.
+
+**Output Description**  
+
+    You need to output size of final string followed by string after which no neutralizing is possible.
+
+**Constraints:**  
+
+    0 ≤ i ≤ |s| − 1
+
+**Time Limit:**
+
+    Time Limit: 5000
+
+**Sample Input**
+
+    12
+    aaacccbbcccd
+
+**Sample Output**
+
+    2
+    ad
+
+<hr/>
+
+**Test Case 1**
+
+***Input 1***
+
+    100
+    cbabbbdbdbcdacddddbbbbbdcbcddbcbcdcaabbdcdcccbcbadcbadbdbdcaabbdaadabadadccbdacadabaacdbbbbcccbccaca
+
+***Output 1***
+
+    62
+    cbabdbdbcdacbdcbcbcbcdcdcdcbcbadcbadbdbdcabadadbdacadabcdcbaca    
+
+<hr/>
+
+**Test Case 2**
+
+***Input 2***
+
+    100
+    abbbaaaababaaabbbabbbabbaaaabababbbbbbbababbbabaaaaabbbbaabbaabbbabbaabbbabaaaabaabbaaaaabbaababbbab
+
+***Output 2***
+
+    16
+    babababababababa    
+
+<hr/>
+
+**Test Case 3**
+
+***Input 3***
+
+    1000
+    uirzrgeevkfhsobasrvcujsopjllijicsbbjigpdsumkjpkdiiherztjigusreujgyvqgktyfhiqzuthcamwahfknbdefxqlxlbdxwdcglsfinmmoyiofnauqdbwdtjaengbjjgrxawfolrelcstrspiyqeblpdrcjtovbfudebrrsvcwpvoknwkdclrtqiwcdkxertixubomzrlqozcbxmhbxyuogqqkcpquiarcciqbzbtpcwrziaaiyvygnqsqfjmpjftlnjoonkergxroxtwxqwfemywrhkiqpbefnutceztkwmbvizuywaeiycchmkzeodjbaedegyrelsavtwtpwaawccdrodxcigfimipsjgxwazrvvmlumlqrpwkdbhilpnwbyluhtrdtswonibhvoaofyyjbhrmweixevtlomqjemasvdbssdixbgienbtlibimzcanoqztdznacouwscwvkgcxivisysexwenlvmgantcrjwodymbisdhcyruwlzuifhtcvbciwgzfcplcdmmypvanovlawfibodgjgktcrvhvmuyqgmoviqkynwyjdinsntdtdxvwsfsezswiemdodqpqoncryrjlknhpmeoglgmnyjvexavcqkvezxyzohlawurkyfqkndznouuluponbjtcircybpazjrkjzavmfuatoufllvaoevsonumqjmpufbeeebrjwtfmpkzchzsnxkbmfncqbtngxrlbuemqzrfodeskgkxdwypbntuomhvlagmumbnlssbwwtiefghbgyfurzkgifrknggzhtkbnnzmgiqlqapwyusqvdyfippyvxxetkggxfsgpjtfjiejcwzzzzekpvimthtmrzsrgnxwwqbhbhqfesfftlpihzxchsoyrirzvovthzcigvnmnusgghrnhqpqifqbpialwygfzlnhgduvxmdfvwuemjuwqlzgvatrazzzkoistcntqryontscepyv
+
+***Output 3***
+
+    928
+    uirzrgvkfhsobasrvcujsopjijicsjigpdsumkjpkdherztjigusreujgyvqgktyfhiqzuthcamwahfknbdefxqlxlbdxwdcglsfinoyiofnauqdbwdtjaengbgrxawfolrelcstrspiyqeblpdrcjtovbfudebsvcwpvoknwkdclrtqiwcdkxertixubomzrlqozcbxmhbxyuogkcpquiariqbzbtpcwrzyvygnqsqfjmpjftlnjnkergxroxtwxqwfemywrhkiqpbefnutceztkwmbvizuywaeiyhmkzeodjbaedegyrelsavtwtpdrodxcigfimipsjgxwazrmlumlqrpwkdbhilpnwbyluhtrdtswonibhvoaofjbhrmweixevtlomqjemasvdbdixbgienbtlibimzcanoqztdznacouwscwvkgcxivisysexwenlvmgantcrjwodymbisdhcyruwlzuifhtcvbciwgzfcplcdypvanovlawfibodgjgktcrvhvmuyqgmoviqkynwyjdinsntdtdxvwsfsezswiemdodqpqoncryrjlknhpmeoglgmnyjvexavcqkvezxyzohlawurkyfqkndznoluponbjtcircybpazjrkjzavmfuatoufvaoevsonumqjmpufbebrjwtfmpkzchzsnxkbmfncqbtngxrlbuemqzrfodeskgkxdwypbntuomhvlagmumbnlbtiefghbgyfurzkgifrknzhtkbzmgiqlqapwyusqvdyfiyvetkxfsgpjtfjiejcwekpvimthtmrzsrgnxqbhbhqfestlpihzxchsoyrirzvovthzcigvnmnushrnhqpqifqbpialwygfzlnhgduvxmdfvwuemjuwqlzgvatrazkoistcntqryontscepyv    
+
+<hr/>
+
+**Test Case 4**
+
+***Input 4***
+
+    799
+    abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrs
+
+***Output 4***
+
+    799
+    abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrs    
+
+<hr/>
+
+**Test Case 5**
+
+***Input 5***
+
+    201
+    bcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst
+
+***Output 5***
+
+    201
+    bcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst
+
+<hr/>
+
+**Example Snippet (Python)**
+
+```python
+n = int(input())
+s = input()
+l = list(s)
+ans = []
+for i in range(len(l)):
+    if ans and ans[-1]==l[i]:
+        val = ans.pop()
+    else:
+       ans.append(l[i])
+print(len(ans))
+print("".join(ans))
+```
+
+<hr/>
+
+
+
+> ## VQ9 Help them out
+
+**Problem Statement**
+
+Three friends Bob , Alice and Peter are giving a coding contest where they are given a array problem which they are expected to solve in order to win the contest . Help them to win the contest .The problem is given below.
+
+They are suppose to find the number of steps(moves) required to convert the given array to zero array(an array in which every element is 0)
+
+Condition : 
+
+Only 2 moves are possible (  Decrement and half operations ):
+
+- The decrement operator decreses the value of an element in the array by 1 .
+
+- Half operation halfs the value of each element in the array.
+
+Example :
+
+| Input | Output |
+|---|---|
+| 7 8 9 | 9 |
+
+Minimum moves required to convert array [7 8 9] to array [0 0 0]  as per given condition is 9 .
+
+| Input | Output |
+|---|---|
+| 10 15 11 | 12 |
+
+Minimum moves required to convert array [10 15 11] to array [0 0 0]  as per given condition is 12 .
+
+
+**Input Description**  
+
+    The first line contains  integer n that is the size of array. The next line contains n integers gi, the elements of array.
+
+**Output Description**  
+
+    Print an integer that is minimum number of moves required .
+
+**Constraints:**  
+
+    1 ≤ N ≤ 10^6
+    1 ≤ g[i] ≤ 5*10^7
+
+**Time Limit:**
+
+    Time Limit: 2000
+
+**Sample Input**
+
+    5
+    10 
+    11 
+    12
+    11
+    10
+
+**Sample Output**
+
+    15
+
+<hr/>
+
+**Test Case 1**
+
+***Input 1***
+
+    5
+    10
+    11
+    12
+    11
+    10
+
+***Output 1***
+
+    15    
+
+<hr/>
+
+**Test Case 2**
+
+***Input 2***
+
+    3
+    10
+    20
+    30
+
+***Output 2***
+
+    12    
+
+<hr/>
+
+**Test Case 3**
+
+***Input 3***
+
+    1
+    10
+
+***Output 3***
+
+    5
+
+<hr/>
+
+**Test Case 4**
+
+***Input 4***
+
+    15
+    35168 15238 24346 19010 45448 63920 6273 88059 32064 59568 79436 31322 10317 1821 64397
+
+***Output 4***
+
+    130    
+
+<hr/>
+
+**Test Case 5**
+
+***Input 5***
+
+    2
+    140 150
+
+***Output 5***
+
+    14    
+
+<hr/>
+
+**Example Snippet (Python)**
+
+```python
+n=int(input())
+l=[]
+for t in range(0,n):
+    s=input()
+    try:
+        l.append(int(s))
+    except:
+        l=list(map(int,s.split(" ")))
+        break
+c=0
+half=0
+for i in l:
+    h=0
+    while(i!=0):
+        if i%2==0:
+            i=i//2
+            h+=1
+        else:
+            i-=1
+            c+=1
+    if h>half:
+        half=h
+print(c+half)
+```
+
+<hr/>
