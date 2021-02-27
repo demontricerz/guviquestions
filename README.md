@@ -797,10 +797,6 @@ def Solve (arr):
             print(s)
         else:
             print(' ')
-            
-        
-            
-        
  
 N = int(input())
 arr = list(map(int, input().split()))
@@ -808,3 +804,271 @@ Solve(arr)
 ```
 
 <hr/>
+
+> ## VQ6 Hamiltonian and Lagrangian
+
+**Problem Statement**
+
+Students have become secret admirers of SEGP. They find the course exciting and the professors amusing. After a superb Mid Semester examination its now time for the results. The TAs have released the marks of students in the form of an array, where arr[i] represents the marks of the ith student.
+
+Since you are a curious kid, you want to find all the marks that are not smaller than those on its right side in the array.
+
+**Input Description**  
+
+    The first line of input will contain a single integer n denoting the number of students.
+    The next line will contain n space separated integers representing the marks of students.
+
+**Output Description**  
+
+    Output all the integers separated in the array from left to right that are not smaller than those on its right side.
+
+**Constraints:**  
+
+    1 <= n <= 1000000
+    0 <= arr[i] <= 10000
+
+**Time Limit:**
+
+    Time Limit: 2000
+
+**Sample Input**
+
+    6
+    16 17 4 3 5 2
+
+**Sample Output**
+
+    17 5 2
+
+<hr/>
+
+**Test Case 1**
+
+***Input 1***
+
+    5
+    446 107 111 209 383
+
+***Output 1***
+
+    383
+
+<hr/>
+
+**Test Case 2**
+
+***Input 2***
+
+    8
+    431 257 313 423 498 415 93 145
+
+***Output 2***
+
+    498 415 145
+
+<hr/>
+
+**Test Case 3**
+
+***Input 3***
+
+    4
+    457 92 171 300
+
+***Output 3***
+
+    300
+
+<hr/>
+
+**Test Case 4**
+
+***Input 4***
+
+    8
+    248 192 6 410 55 356 334 145
+
+***Output 4***
+
+    410 356 334 145
+
+<hr/>
+
+**Test Case 5**
+
+***Input 5***
+
+    3
+    307 115 500
+
+***Output 5***
+
+    500
+
+<hr/>
+
+**Example Snippet (Python)**
+
+```python
+n=int(input())
+arr=list(map(int,input().split(' ')))
+max=arr[-1]
+output=[arr[-1]]
+for i in range(n-2,0,-1):
+    if arr[i]>=max:
+        output.append(arr[i])
+        max=arr[i]
+output=output[::-1]
+for i in output:
+    print(i, end=" ")
+```
+
+<hr/>
+
+
+> ## VQ7 Possible Polygon
+
+**Problem Statement**
+
+> You are given length of n sides, you need to answer whether it is possible to make n sided convex polygon with it.
+ 
+
+**Input Description**  
+
+    First line contains T, no of testcases.
+    For each test case , first line consist of single integer N,second line consist of N (l1,l2…ln) spaced integers, size of each side.
+
+**Output Description**  
+
+    For each test case print "Yes" if it is possible to make polygon or else "No" if it is not possible.
+
+**Constraints:**  
+
+    1≤T≤10
+    1≤n≤10<sup>5</sup>
+    1≤l<sub>i</sub>≤10<sup>4</sup>
+
+**Time Limit:**
+
+    Time Limit: 5000
+
+**Sample Input**
+
+    2
+    3
+    4 3 2 
+    4
+    1 2 1 4 
+
+**Sample Output**
+
+    Yes
+    No
+
+<hr/>
+
+**Test Case 1**
+
+***Input 1***
+
+    2
+    3
+    2 3 4
+    5
+    1 2 3 4 5
+
+***Output 1***
+
+    Yes
+    Yes    
+
+<hr/>
+
+**Test Case 2**
+
+***Input 2***
+
+    2
+    2
+    6 7
+    1
+    4
+
+***Output 2***
+
+    No
+    No    
+
+<hr/>
+
+**Test Case 3**
+
+***Input 3***
+
+    1
+    1
+    9
+
+***Output 3***
+
+    No    
+
+<hr/>
+
+**Test Case 4**
+
+***Input 4***
+
+    3
+    2
+    89 45
+    2
+    76 4
+    2
+    23 45
+
+***Output 4***
+
+    No
+    No
+    No
+
+<hr/>
+
+**Test Case 5**
+
+***Input 5***
+
+    2
+    4
+    45 67 23 67
+    3
+    45 784 34    
+
+***Output 5***
+
+    Yes
+    No    
+
+<hr/>
+
+**Example Snippet (Python)**
+
+```python
+t = int(input())
+a=[]
+while t:
+    n = int(input())
+    l = list(map(int, input().split()))
+    sides_sum = sum(l)
+    max_l = max(l)
+    if sides_sum - max_l > max_l:
+        a.append("Yes")
+    else:
+        a.append("No")
+    t -= 1
+print("\n".join(a))
+```
+
+<hr/>
+
