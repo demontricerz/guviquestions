@@ -642,3 +642,169 @@ print(count)
 ```
 
 <hr/>
+
+
+> ## VQ5 Disk tower
+
+**Problem Statement**
+
+Your task is to construct a tower in N days by following these conditions:
+
+Every day you are provided with one disk of distinct size.
+The disk with larger sizes should be placed at the bottom of the tower.
+The disk with smaller sizes should be placed at the top of the tower.
+The order in which tower must be constructed is as follows:
+
+You cannot put a new disk on the top of the tower until all the larger disks that are given to you get placed.
+Print N lines denoting the disk sizes that can be put on the tower on the i<sup>th</sup> day.
+
+**Explanation**
+
+- On the first day, the disk of size 4 is given. But you cannot put the disk on the bottom of the tower as a disk of size 5 is still remaining.
+
+- On the second day, the disk of size 5 will be given so now disk of sizes 5 and 4 can be placed on the tower. 
+
+- On the third and fourth day, disks cannot be placed on the tower as the disk of 3 needs to be given yet. Therefore, these lines are empty. 
+
+- On the fifth day, all the disks of sizes 3, 2, and 1 can be placed on the top of the tower.
+
+**Input Description**  
+
+    First line: N denoting the total number of disks that are given to you in the N subsequent days
+    Second line: N integers in which the i<sup>th</sup> integers denote the size of the disks that are given to you on the i<sup>th</sup> day
+
+**Output Description**  
+
+    Print N lines. In the i<sup>th</sup> line, print the size of disks that can be placed on the top of the tower in descending order of the disk sizes.
+    If on the i<sup>th</sup> day no disks can be placed, then leave that line empty.
+
+**Constraints:**  
+
+    1<=N<=10<sup>6</sup>
+    1<=size of disc<=N
+
+**Time Limit:**
+
+    Time Limit: 5000
+
+**Sample Input**
+
+    5
+    4 5 1 2 3
+
+**Sample Output**
+
+    5 4
+    
+    
+    3 2 1
+
+<hr/>
+
+**Test Case 1**
+
+***Input 1***
+
+    1
+    1
+
+***Output 1***
+
+    1
+
+<hr/>
+
+**Test Case 2**
+
+***Input 2***
+
+    2
+    1 2
+
+***Output 2***
+
+    2 1
+
+<hr/>
+
+**Test Case 3**
+
+***Input 3***
+
+    4
+    3 2 1 4
+
+***Output 3***
+
+    4 3 2 1
+
+<hr/>
+
+**Test Case 4**
+
+***Input 4***
+
+    15
+    11 7 14 3 9 4 12 2 5 1 15 13 10 8 6
+
+***Output 4***
+
+    15 14
+    13 12 11
+    10 9
+    8 7
+    6 5 4 3 2 1
+
+<hr/>
+
+**Test Case 5**
+
+***Input 5***
+
+    12
+    3 4 10 12 9 1 2 7 11 8 6 5
+
+***Output 5***
+
+    12
+    11 10 9
+    8 7
+    6
+    5 4 3 2 1
+
+<hr/>
+
+**Example Snippet (Python)**
+
+```python
+def Solve (arr):
+    # Write your code here
+    stack = []
+    mxn = len(arr)
+    j = 0
+    out = []
+    d = {}
+    
+    for i in arr :
+        d[i] = True
+        s = ''
+        if i == mxn:
+            s += str(i) + ' '
+            mxn -=1
+            while (mxn in d):
+                s += str(mxn) + ' '
+                mxn -=1
+            print(s)
+        else:
+            print(' ')
+            
+        
+            
+        
+ 
+N = int(input())
+arr = list(map(int, input().split()))
+Solve(arr)
+```
+
+<hr/>
