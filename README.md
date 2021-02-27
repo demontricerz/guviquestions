@@ -494,3 +494,151 @@ print(len(q))
 ```
 
 <hr/>
+
+> ## VQ4 Monk and Power of Time
+
+**Problem Statement**
+
+The Monk is trying to explain to its users that even a single unit of time can be extremely important and to demonstrate this particular fact he gives them a challenging task.
+
+There are N processes to be completed by you, the chosen one, since you're Monk's favorite student. All the processes have a unique number assigned to them from 1 to N.
+
+Now, you are given two things:
+
+The calling order in which all the processes are called.
+The ideal order in which all the processes should have been executed.
+Now, let us demonstrate this by an example. Let's say that there are 3 processes, the calling order of the processes is: 3 - 2 - 1. The ideal order is: 1 - 3 - 2, i.e., process number 3 will only be executed after process number 1 has been completed; process number 2 will only be executed after process number 3 has been executed.
+
+> Iteration #1: Since the ideal order has process #1 to be executed firstly, the calling ordered is changed, i.e., the first element has to be pushed to the last place. Changing the position of the element takes 1 unit of time. The new calling order is: 2 - 1 - 3. Time taken in step #1: 1.
+
+> Iteration #2: Since the ideal order has process #1 to be executed firstly, the calling ordered has to be changed again, i.e., the first element has to be pushed to the last place. The new calling order is: 1 - 3 - 2. Time taken in step #2: 1.
+
+> Iteration #3: Since the first element of the calling order is same as the ideal order, that process will be executed. And it will be thus popped out. Time taken in step #3: 1.
+
+> Iteration #4: Since the new first element of the calling order is same as the ideal order, that process will be executed. Time taken in step #4: 1.
+
+> Iteration #5: Since the last element of the calling order is same as the ideal order, that process will be executed. Time taken in step #5: 1.
+
+Total time taken: 5 units.
+
+PS: Executing a process takes 1 unit of time. Changing the position takes 1 unit of time.
+
+**Input Description**  
+
+    The first line a number N, denoting the number of processes. The second line contains the calling order of the processes. The third line contains the ideal order of the processes.
+
+**Output Description**  
+
+    Print the total time taken for the entire queue of processes to be executed.
+
+**Constraints:**  
+
+    1<=N<=100
+
+**Time Limit:**
+
+    Time Limit: 5000
+
+**Sample Input**
+
+    3
+    3 2 1
+    1 3 2
+
+**Sample Output**
+
+    5
+
+<hr/>
+
+**Test Case 1**
+
+***Input 1***
+
+    40
+    5 29 12 16 25 36 18 37 27 32 34 40 20 3 1 24 26 19 33 9 6 22 8 13 15 21 28 7 11 2 31 39 14 38 4 17 30 35 10 23
+    14 39 4 5 23 7 40 8 36 17 30 21 3 35 33 32 12 16 20 25 31 13 22 34 19 18 29 11 27 15 1 38 26 6 28 10 9 37 2 24
+
+***Output 1***
+
+    491
+
+<hr/>
+
+**Test Case 2**
+
+***Input 2***
+
+    30
+    5 29 12 16 25 17 18 30 27 10 4 23 20 3 1 24 26 19 14 9 6 22 8 13 15 21 28 7 11 2
+    17 20 6 18 21 5 22 24 28 7 23 3 27 19 10 30 15 25 12 16 2 1 11 9 4 8 29 14 13 26
+
+***Output 2***
+
+    226    
+
+<hr/>
+
+**Test Case 3**
+
+***Input 3***
+
+    5
+    5 4 2 3 1
+    5 2 1 4 3
+
+***Output 3***
+
+    7
+
+<hr/>
+
+**Test Case 4**
+
+***Input 4***
+
+    10
+    5 4 8 9 1 6 3 2 7 10
+    1 6 8 9 5 4 10 3 2 7
+
+***Output 4***
+
+    27
+
+<hr/>
+
+**Test Case 5**
+
+***Input 5***
+
+    15
+    5 11 12 13 15 6 14 2 7 10 4 8 9 3 1
+    4 15 8 2 6 9 11 10 7 5 13 14 3 1 12
+
+***Output 5***
+
+    75
+
+<hr/>
+
+**Example Snippet (Python)**
+
+```python
+n=int(input())
+call=list(map(int,input().split()))
+ideal=list(map(int,input().split()))
+count=0
+i=0
+while(len(call)!=0):
+    if(call[i]==ideal[i]):
+        del call[i]
+        del ideal[i]
+        count+=1
+    else:
+        b= call.pop(i)
+        call.append(b)
+        count+=1  
+print(count)
+```
+
+<hr/>
