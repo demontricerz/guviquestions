@@ -1598,3 +1598,582 @@ if __name__ == "__main__":
 ```
 
 <hr/>
+
+> ## VQ11 Sharpen the pencils
+
+**Problem Statement**
+
+Madhav and Riya were getting bored. So they decided to play a game.
+They placed N pencils in a line. Madhav starts to sharpen pencil from left to right, and Riya from right to left. For each pencil, its length is known.
+Madhav sharpens with speed twice that of Riya. If a player starts to sharpen the pencil, other player can't touch it. If both players reach the same pencil simultaneously, Madhav gets to sharpen pencil as he snatches it away from Riya.
+
+How many pencils each of the players will sharpen?
+
+**Input Description**  
+
+    The first line contains one integer T, the number of test cases.
+    The first line of each test case contains one integer N,the number of pencils.
+    The second line contains a sequence , A1, A2, A3 . . . An where Ai denotes length of ith pencil.
+
+
+**Output Description**  
+
+    Print two numbers X and Y separated by space, where X is the number of pencils sharpened by Madhav, and Y is the number of pencils sharpened by Riya.
+
+
+**Constraints:**  
+
+    1 ≤ T ≤ 100
+    1 ≤ N ≤ 100000
+    1 ≤ Ai ≤ 10^7
+
+**Time Limit:**
+
+    Time Limit: 5000
+
+**Sample Input**
+
+    1
+    5
+    2 9 8 2 7
+
+**Sample Output**
+
+    3 2
+
+<hr/>
+
+**Test Case 1**
+
+***Input 1***
+
+    1
+    5
+    2 9 8 2 7
+
+***Output 1***
+
+    3 2
+
+<hr/>
+
+**Test Case 2**
+
+***Input 2***
+
+    1
+    3
+    5 6 7
+
+***Output 2***
+
+    2 1    
+
+<hr/>
+
+**Test Case 3**
+
+***Input 3***
+
+    1
+    4
+    45 23 45 89
+
+***Output 3***
+
+    3 1    
+
+<hr/>
+
+**Test Case 4**
+
+***Input 4***
+
+    1
+    2
+    3 4
+
+***Output 4***
+
+    1 1    
+
+<hr/>
+
+**Test Case 5**
+
+***Input 5***
+
+    1
+    4
+    1 4 1 4
+
+***Output 5***
+
+    3 1    
+
+<hr/>
+
+**Example Snippet (Python)**
+
+```python
+def main():
+    t = int(input().strip())
+    while t!=0:
+        n = int(input().strip())
+        line = input().split()
+        arr = list(map(int, line))
+        i = 0 
+        j = n-1
+        left = arr[i]
+        right = arr[j]
+        mad = 1
+        riya = 1
+        while j != i+1:
+            # print i,'----',j
+            if left < right*2 :
+                i += 1
+                left += arr[i]
+                mad += 1
+            elif left > right*2:
+                # print riya
+                j -= 1
+                right += arr[j]
+                riya += 1
+            else:
+                i += 1
+                j -= 1
+                if i != j:
+                    left += arr[i]
+                    right += arr[j]
+                    mad += 1
+                    riya += 1
+                else:
+                    break
+        print (mad,riya,sep=" ")
+        
+        t-=1
+if __name__ == '__main__':
+    main()
+```
+
+<hr/>
+
+
+> ## VQ12 Deleting Arrays
+
+**Problem Statement**
+
+You are given two integers \(N\) and \(K\) denoting the number of elements in the array and an arbitrary integer respectively. You can perform the following operations:
+
+- Select an index \(i\).
+- Delete the \(i^{th}\) element.
+- Delete \(K\) elements to the left of it if they exist or you can delete all the elements if the number of elements to the left of it is less than \(K\).
+- Delete \(K\) elements to the right of it if they exist or you can delete all if the number of elements to the right of it is less than \(K\).
+
+Your task is to delete all the elements of the array using the minimum number of provided operations.
+
+**Input Description**  
+
+    The first line contains an integer \(T\) denoting the number of test cases.
+    The first line of each test case contains a single line containing two space-separated integers \(N\) and \(K\).
+
+**Output Description**  
+
+    Print \(i^{th}\) \(T\) lines denoting the answer to the \(i^{th}\) test case.
+
+**Constraints:**  
+
+    \(1\leq T \leq 20000\)
+    \(1\leq N,K \leq 1e9\)
+
+**Time Limit:**
+
+    Time Limit: 5000
+
+**Sample Input**
+
+    1
+    4 1
+
+**Sample Output**
+
+    2
+
+<hr/>
+
+**Test Case 1**
+
+***Input 1***
+
+    1
+    4 2
+
+***Output 1***
+
+    1    
+
+<hr/>
+
+**Test Case 2**
+
+***Input 2***
+
+    10
+    19514 15706
+    7043 5456
+    17646 7386
+    10333 12706
+    4603 9909
+    14785 9477
+    596 9617
+    8850 7234
+    10445 1208
+    4023 16165    
+
+***Output 2***
+
+    1
+    1
+    2
+    1
+    1
+    1
+    1
+    1
+    5
+    1    
+
+<hr/>
+
+**Test Case 3**
+
+***Input 3***
+
+    2
+    3696 11681
+    7338 14162
+
+***Output 3***
+
+    1
+    1
+
+<hr/>
+
+**Test Case 4**
+
+***Input 4***
+
+    3
+    17931 16191
+    1046 19947
+    14626 5694
+
+***Output 4***
+
+    1
+    1
+    2
+
+<hr/>
+
+**Test Case 5**
+
+***Input 5***
+
+    5
+    3703 17566
+    11825 5485
+    8512 19652
+    13848 3189
+    18098 13648
+
+***Output 5***
+
+    1
+    2
+    1
+    3
+    1
+
+<hr/>
+
+**Example Snippet (Python)**
+
+```python
+import math
+t = int(input())
+a = []
+for i in range(0,t):
+    b = []
+    case = input()
+    b = case.split(" ")
+    a.append(b)
+ 
+for cases in a:
+    n = int(cases[0])
+    k = int(cases[1])
+    l = 2*k + 1
+    print(math.ceil(n/l))
+```
+
+<hr/>
+
+
+> ## VQ13 Corporate Gifts
+
+**Problem Statement**
+
+You are given N coins whose values are from 1 to N. The value of each coin ranges from 1 to N. You want to gift as many people as you can.
+
+You also want to be fair with everyone and therefore, you prepare the gift such that each person can be gifted the same amount of money. You are allowed to put several denominations together in a gift. What is the maximum number of gifts that you can prepare?
+
+Note: It does not make sense to prepare empty gifts.
+
+**Input Description**  
+
+    The first line contains T denoting the number of test cases.
+    The first and only line of each test case contains an integer N as described in the problem statement.
+
+**Output Description**  
+
+    For each test case, print a single integer consisting of the maximum number of gifts.
+
+**Constraints:**  
+
+    1≤T≤20000
+    1≤N≤10^9
+
+**Time Limit:**
+
+    Time Limit: 5000
+
+**Sample Input**
+
+    1
+    4
+
+**Sample Output**
+
+    2
+
+<hr/>
+
+**Test Case 1**
+
+***Input 1***
+
+    1
+    4
+
+***Output 1***
+
+    2
+
+<hr/>
+
+**Test Case 2**
+
+***Input 2***
+
+    5
+    1995
+    523
+    6067
+    3105
+    3654
+
+***Output 2***
+
+    998
+    262
+    3034
+    1553
+    1827
+
+<hr/>
+
+**Test Case 3**
+
+***Input 3***
+
+    4
+    7692
+    1545
+    2447
+    6040
+
+***Output 3***
+
+    3846
+    773
+    1224
+    3020
+
+<hr/>
+
+**Test Case 4**
+
+***Input 4***
+
+    6
+    7423
+    7690
+    3641
+    3753
+    5474
+    1520
+
+***Output 4***
+
+    3712
+    3845
+    1821
+    1877
+    2737
+    760    
+
+<hr/>
+
+**Test Case 5**
+
+***Input 5***
+
+    2
+    8037
+    5691
+
+***Output 5***
+
+    4019
+    2846
+
+<hr/>
+
+**Example Snippet (Python)**
+
+```python
+n=int(input())
+l=list()
+for i in range(n):
+    l.append(int(input()))
+for i in l:
+    if i%2==0:
+        print(int(i/2))
+    else:
+        print(int((i+1)/2))
+```
+
+<hr/>
+
+
+> ## VQ14 Coprimes
+
+**Problem Statement**
+
+    You are provided an integer \(n\). Your task is to determine the largest integer \(a\) (\(a<n-1\)) that is a coprime of \(n\). This implies that \(gcd(a,n)=1\).
+
+**Input Description**  
+
+    A single line that contains an integer \(n\)
+
+**Output Description**  
+
+    Print the answer to the question.
+
+**Constraints:**  
+
+    (3 <= n <= 10^3)
+
+**Time Limit:**
+
+    Time Limit: 5000
+
+**Sample Input**
+
+    5
+
+**Sample Output**
+
+    1
+
+<hr/>
+
+**Test Case 1**
+
+***Input 1***
+
+    4
+
+***Output 1***
+
+    1
+
+<hr/>
+
+**Test Case 2**
+
+***Input 2***
+
+    5
+
+***Output 2***
+
+    3
+
+<hr/>
+
+**Test Case 3**
+
+***Input 3***
+
+    10
+
+***Output 3***
+
+    7
+
+<hr/>
+
+**Test Case 4**
+
+***Input 4***
+
+    21
+
+***Output 4***
+
+    19
+
+<hr/>
+
+**Test Case 5**
+
+***Input 5***
+
+    13
+
+***Output 5***
+
+    11
+
+<hr/>
+
+**Example Snippet (Python)**
+
+```python
+def GCD(a, b):
+    if b == 0:
+        return a
+    else:
+        return GCD(b, a%b)
+
+n = int(input())
+for a in range(n-2, 0, -1):
+    if GCD(n, a) == 1:
+        print(a)
+        break
+```
+
+<hr/>
+
